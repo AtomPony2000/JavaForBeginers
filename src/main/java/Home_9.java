@@ -3,25 +3,25 @@ import java.util.Scanner;
 public class Home_9 {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        String[] motivation = {
+                "Еще!", "Да что ты можешь?", "Камон!", "Используй силу!",
+                "Слабак", "Моя бабушка быстрее печатает"
+        };
 
-
-        Scanner in = new Scanner(System.in);
-        System.out.print("Введите количество строк массива: ");
-        int a = in.nextInt();
-
-        System.out.print("Введите количество столбцов массива: ");
-        int b = in.nextInt();
-
-        int[][] arr = new int[a][b];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print("Введите элемент arr[" + i + "][" + j + "]:");
-                arr[i][j] = in.nextInt();
-            }
+        System.out.println("Укажи размер массива");
+        int firstInput = sc.nextInt();
+        int[] mass = new int[firstInput];
+        System.out.println("Введите число: ");
+        for (int i = 0; i < mass.length; i++) {
+            String randomMotivation = motivation[(int) (Math.random() * motivation.length)];
+            System.out.println(randomMotivation);
+            int number = sc.nextInt();
+            mass[i] = number;
         }
 
-        for (int i = 0; i < b; i++) {
-            System.out.println(arr[0][i] + " * 3 = " + arr[0][i] * 3);
+        for (int i = 0; i < mass.length; i++) {
+            System.out.println(mass[i] + " * 2 = " + mass[i] * 2);
         }
     }
 }
