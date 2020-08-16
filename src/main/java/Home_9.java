@@ -1,13 +1,16 @@
 import java.util.Scanner;
 
 public class Home_9 {
+
+    protected static String[] motivation = {
+            "Еще!", "Да что ты можешь?", "Камон!", "Используй силу!",
+            "Слабак", "Моя бабушка быстрее печатает"
+    };
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        String[] motivation = {
-                "Еще!", "Да что ты можешь?", "Камон!", "Используй силу!",
-                "Слабак", "Моя бабушка быстрее печатает"
-        };
+
 
         System.out.println("Укажи размер массива");
         int firstInput = sc.nextInt();
