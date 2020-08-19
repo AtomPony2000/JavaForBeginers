@@ -1,12 +1,11 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Home_18 {
+public class Home_18 extends Home_9 {
     public static void main(String[] args) throws Exception {
-        String path = "C:/Users/rnser/IdeaProjects/JavaForBeginers/src/main/resources/home17.txt";
+        String path = "src/main/resources/home17.txt";
         FileReader fr = new FileReader(path);
         Scanner scan = new Scanner(fr);
-        Scanner in = new Scanner(System.in);
         int i = 1;
 
         System.out.println("Вот все строки, которые храняться в файле:");
@@ -14,25 +13,22 @@ public class Home_18 {
             System.out.println(scan.nextLine());
             i++;
         }
-
+        int count = i - 1;
         fr.close();
 
-        System.out.println("Что хочешь заменить? Напиши содержимое строки:");
-        String searchWord = in.nextLine();
-        System.out.println("На что меняем?");
-        String changeWord = in.nextLine();
-
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
-            String strLine;
-            while ((strLine = br.readLine()) != null) {
-                sb.append(strLine.replace(searchWord, changeWord)).append("\r\n");
-                i++;
+        System.out.println("Строк всего " + count + "\n" +
+                "Давай заполним их");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            try (BufferedWriter writter = new BufferedWriter(new FileWriter(path))) {
+                for (int n = 0; n < count; n++) {
+                    String line = reader.readLine();
+                    System.out.println(motivation[(int) (Math.random() * motivation.length)]);
+                    writter.write(line + "\r\n");
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        try (FileWriter fileWriter = new FileWriter(path)) {
-            fileWriter.write(sb.toString());
-        }
     }
 }

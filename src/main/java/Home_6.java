@@ -17,9 +17,9 @@ public class Home_6 {
         System.out.println("Сумма чисел: " + sum);
         double average = sum / inputNumbers.length;
         System.out.println("Среднее арифметическое: " + average);
-        double result = average / 2;
+        int result = (int) average / 2;
         System.out.println("Результат: " + result);
-        if (average > 3) {
+        if (result > 3) {
             System.out.println("Программа выполнена корректно");
         }
     }

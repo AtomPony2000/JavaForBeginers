@@ -7,7 +7,7 @@ public class Home_9 {
             "Слабак", "Моя бабушка быстрее печатает"
     };
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
 
